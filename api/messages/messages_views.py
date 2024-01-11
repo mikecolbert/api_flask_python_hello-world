@@ -16,12 +16,14 @@ bp = Blueprint(bp_name, __name__, url_prefix=bp_url_prefix)
 
 @bp.route("/public")
 def public():
+    print("inside public function")
     return vars(get_public_message())
 
 
 @bp.route("/protected")
 @authorization_guard
 def protected():
+    print("inside private function")
     return vars(get_protected_message())
 
 
